@@ -4,14 +4,21 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import axios from 'axios'
+import { baseApiUrl } from './util/util'
+import { defineComponent, onMounted } from 'vue'
 import HelloWorld from './components/HelloWorld.vue'
 
 export default defineComponent({
   name: 'App',
   components: {
-    HelloWorld
-  }
+    HelloWorld,
+  },
+  setup() {
+    onMounted(async () => {
+      await axios.get(`${baseApiUrl}/health_check`)
+    })
+  },
 })
 </script>
 
