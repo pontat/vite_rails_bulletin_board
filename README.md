@@ -1,0 +1,1 @@
+# rails_vite_bulletin_board
